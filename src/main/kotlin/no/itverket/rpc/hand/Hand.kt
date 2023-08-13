@@ -5,9 +5,6 @@ import java.lang.RuntimeException
 abstract class Hand: Comparable<Hand> {
     companion object {
         private val SIGN_RELATIONSHIP = listOf(Rock::class, Paper::class, Scissor::class)
-        private const val TIE = "tie"
-        private const val WEAK = "weak"
-        private const val STRONG = "strong"
     }
 
     private fun signRelationshipIndex() =
