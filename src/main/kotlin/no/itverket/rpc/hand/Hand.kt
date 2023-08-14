@@ -8,7 +8,7 @@ abstract class Hand: Comparable<Hand> {
     }
 
     private fun signRelationshipIndex() =
-        SIGN_RELATIONSHIP.indexOf(this::class).takeIf { it != -1 } ?: throw RuntimeException("New unknown sign")
+        SIGN_RELATIONSHIP.indexOf(this::class).takeIf { it != -1 } ?: throw RuntimeException("New unknown sign ${this::class}")
 
     private val weaknessChart = signRelationshipIndex().let {
         mapOf(
@@ -18,5 +18,5 @@ abstract class Hand: Comparable<Hand> {
         )
     }
 
-    override fun compareTo(other: Hand) = weaknessChart[other::class] ?: throw RuntimeException("New unknown sign")
+    override fun compareTo(other: Hand) = weaknessChart[other::class] ?: throw RuntimeException("New unknown sign ${other::class}")
 }

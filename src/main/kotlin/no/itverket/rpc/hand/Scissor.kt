@@ -1,3 +1,5 @@
 package no.itverket.rpc.hand
 
-class Scissor: Hand()
+class Scissor: Hand() {
+    override fun toString() = "scissor"
+}
