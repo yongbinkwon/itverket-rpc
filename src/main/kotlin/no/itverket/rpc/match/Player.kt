@@ -1,13 +1,18 @@
 package no.itverket.rpc.match
 
-import no.itverket.rpc.hand.Hand
+import no.itverket.rpc.sign.Sign
 
 class Player(
-    private val hand: Hand
+    private val name: String,
+    private val sign: Sign
 ) {
-    infix fun play(opponent: Player) = compareHands(opponent)?.let { if (it) this else opponent }
+    infix fun play(opponent: Player) = compare(opponent)?.let { if (it) this else opponent }
 
-    private fun compareHands(other: Player) =
-        if (hand == other.hand) null
-        else hand > other.hand
+    infix fun versus(opponent: Player) = Match(this, opponent)
+
+    private fun compare(other: Player) =
+        if (sign == other.sign) null
+        else sign > other.sign
+
+    override fun toString() = name
 }
