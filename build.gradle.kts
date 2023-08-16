@@ -19,7 +19,8 @@ repositories {
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter")
     implementation("org.springframework.boot:spring-boot-starter-webflux")
-    implementation("org.springframework.boot:spring-boot-configuration-processor")
+    annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core")
 }
 
 tasks.test {
