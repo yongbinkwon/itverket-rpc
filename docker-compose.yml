@@ -1,0 +1,14 @@
+---
+version: '3'
+services:
+  db:
+    image: postgres:latest
+    restart: always
+    environment:
+      - POSTGRES_DB=rpc
+      - POSTGRES_USER=binneling
+      - POSTGRES_PASSWORD=hemmelig
+    ports:
+      - '5432:5432'
+    volumes:
+      - ./src/main/resources/sql/:/docker-entrypoint-initdb.d/
