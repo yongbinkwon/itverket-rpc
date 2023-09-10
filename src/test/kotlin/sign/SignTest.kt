@@ -17,55 +17,37 @@ class SignTest {
     @Nested
     inner class RockTest {
         @Test
-        fun `rock beats scissor`() {
-            assertTrue(Rock() > Scissor())
-        }
+        fun `rock beats scissor`() { assertTrue(Rock() > Scissor()) }
 
         @Test
-        fun `rock ties rock`() {
-            assertTrue(Rock() == Rock())
-        }
+        fun `rock ties rock`() { assertTrue(Rock() == Rock()) }
 
         @Test
-        fun `rock loses to paper`() {
-            assertTrue(Rock() < Paper())
-        }
+        fun `rock loses to paper`() { assertTrue(Rock() < Paper()) }
     }
 
     @Nested
     inner class ScissorTest {
         @Test
-        fun `scissor beats paper`() {
-            assertTrue(Scissor() > Paper())
-        }
+        fun `scissor beats paper`() { assertTrue(Scissor() > Paper()) }
 
         @Test
-        fun `scissor ties scissor`() {
-            assertTrue(Scissor() == Scissor())
-        }
+        fun `scissor ties scissor`() { assertTrue(Scissor() == Scissor()) }
 
         @Test
-        fun `scissor loses to rock`() {
-            assertTrue(Scissor() < Rock())
-        }
+        fun `scissor loses to rock`() { assertTrue(Scissor() < Rock()) }
     }
 
     @Nested
     inner class PaperTest {
         @Test
-        fun `paper beats rock`() {
-            assertTrue(Paper() > Rock())
-        }
+        fun `paper beats rock`() { assertTrue(Paper() > Rock()) }
 
         @Test
-        fun `paper ties paper`() {
-            assertTrue(Paper() == Paper())
-        }
+        fun `paper ties paper`() { assertTrue(Paper() == Paper()) }
 
         @Test
-        fun `paper loses to scissor`() {
-            assertTrue(Paper() < Scissor())
-        }
+        fun `paper loses to scissor`() { assertTrue(Paper() < Scissor()) }
     }
 
     @Nested
