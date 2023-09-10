@@ -1,3 +1,6 @@
-teams:
-  - { team1: 123.321 }
-  - { team2: 321.123 }
+server:
+  port : 8081
+
+rpc:
+  teams:
+    testTeam: localhost

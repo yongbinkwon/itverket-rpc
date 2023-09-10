@@ -2,14 +2,18 @@ package no.itverket.rpc.team
 
 import org.springframework.boot.context.properties.ConfigurationProperties
 
-@ConfigurationProperties(prefix = "teams")
+@ConfigurationProperties(prefix = "rpc")
 class TeamProperties(
-    private val properties: List<TeamProperty>
+    teams: Map<String, String>
 ) {
-    fun allTeams() = properties
+    private val teams = teams.map(::TeamProperty)
+
+    fun allTeams() = teams
 }
 
 data class TeamProperty(
     val teamName: String,
     val address: String
-)
+) {
+    constructor(entry: Map.Entry<String, String>): this(entry.key, entry.value)
+}
