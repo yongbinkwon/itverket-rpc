@@ -6,7 +6,7 @@ import no.itverket.rpc.sign.exception.UnknownSignNameException
 abstract class Sign: Comparable<Sign> {
     companion object {
         private val SIGN_RELATIONSHIP = listOf(Rock::class, Paper::class, Scissor::class)
-        fun fromString(sign: String) = when(sign.lowercase()) {
+        fun fromString(sign: String) = when(sign.trim().lowercase()) {
             "rock" -> Rock()
             "paper" -> Paper()
             "scissor" -> Scissor()
@@ -26,4 +26,6 @@ abstract class Sign: Comparable<Sign> {
     }
 
     override fun compareTo(other: Sign) = weaknessChart[other::class] ?: throw UnknownSignClassException(this::class)
+
+    override fun equals(other: Any?) = this === other || other is Sign && this.compareTo(other) == 0
 }

@@ -25,6 +25,9 @@ dependencies {
 
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core")
     runtimeOnly("org.jetbrains.kotlinx:kotlinx-coroutines-reactive")
+
+    testImplementation("org.junit.jupiter:junit-jupiter-api")
+    testImplementation("org.junit.jupiter:junit-jupiter-engine")
 }
 
 tasks.test {
