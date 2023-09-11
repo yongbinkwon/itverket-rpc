@@ -1,4 +1,4 @@
-CREATE TABLE ScheduledMatch
+CREATE TABLE QueuedPlayer
 (
     Id   int PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
     Sign varchar(255) NOT NULL,

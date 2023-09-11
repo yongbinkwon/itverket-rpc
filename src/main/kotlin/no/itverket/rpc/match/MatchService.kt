@@ -17,10 +17,6 @@ class MatchService(
     private val rpcClient: RpcClient,
     private val teamProperties: TeamProperties
 ) {
-    companion object {
-        private val SIGNS = listOf(Rock(), Paper(), Scissor())
-    }
-
     @Scheduled(fixedDelay = 10 * 1000)
     fun playAllCheaters() = runBlocking {
         teamProperties.allTeams().forEach {
@@ -29,7 +25,7 @@ class MatchService(
     }
 
     private suspend fun playVersusCheater(team: TeamProperty) {
-        val sign = SIGNS.random()
+        val sign = Sign.random()
         val opponentSign = rpcClient.playCheater(team, sign.toString())
         opponentSign?.run {
             val match = Player("Binneling", sign) versus Player(team.teamName, Sign.fromString(this))

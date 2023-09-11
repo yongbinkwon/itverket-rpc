@@ -6,12 +6,12 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
-@RequestMapping("schedule/")
+@RequestMapping("schedule")
 class MatchmakingController(
     private val matchmakingService: MatchmakingService
 ) {
     @GetMapping
-    fun scheduleMatch(teamName: String, sign: String) {
-        matchmakingService.scheduleMatch(teamName, Sign.fromString(sign))
+    fun queuePlayer(teamName: String, sign: String) {
+        matchmakingService.queuePlayer(teamName, Sign.fromString(sign))
     }
 }

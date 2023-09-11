@@ -3,6 +3,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
     kotlin("jvm") version "1.8.22"
     kotlin("plugin.spring") version "1.8.22"
+    id("org.jetbrains.kotlin.plugin.jpa") version "1.8.22"
     id("org.springframework.boot") version "3.1.2"
     application
 }
@@ -29,7 +30,7 @@ dependencies {
 
     implementation("org.postgresql:postgresql")
 
-    implementation("io.netty:netty-resolver-dns-native-macos")
+    implementation("io.netty:netty-resolver-dns-native-macos:4.1.97.Final:osx-aarch_64")
 
     testImplementation("org.junit.jupiter:junit-jupiter-api")
     testImplementation("org.junit.jupiter:junit-jupiter-engine")

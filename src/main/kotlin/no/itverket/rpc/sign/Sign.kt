@@ -6,12 +6,14 @@ import no.itverket.rpc.sign.exception.UnknownSignNameException
 abstract class Sign: Comparable<Sign> {
     companion object {
         private val SIGN_RELATIONSHIP = listOf(Rock::class, Paper::class, Scissor::class)
+        private val SIGNS = listOf(Rock(), Paper(), Scissor())
         fun fromString(sign: String) = when(sign.trim().lowercase()) {
             "rock" -> Rock()
             "paper" -> Paper()
             "scissor" -> Scissor()
             else -> throw UnknownSignNameException(sign)
         }
+        fun random() = SIGNS.random()
     }
 
     private fun signRelationshipIndex() =
