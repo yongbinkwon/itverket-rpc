@@ -21,10 +21,15 @@ dependencies {
 
     implementation("org.springframework.boot:spring-boot-starter")
     implementation("org.springframework.boot:spring-boot-starter-webflux")
+    implementation("org.springframework.boot:spring-boot-starter-data-jpa")
     annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
 
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core")
     runtimeOnly("org.jetbrains.kotlinx:kotlinx-coroutines-reactive")
+
+    implementation("org.postgresql:postgresql")
+
+    implementation("io.netty:netty-resolver-dns-native-macos")
 
     testImplementation("org.junit.jupiter:junit-jupiter-api")
     testImplementation("org.junit.jupiter:junit-jupiter-engine")
