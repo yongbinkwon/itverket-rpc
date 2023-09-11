@@ -9,4 +9,16 @@ class Match(
     } ?: Result.tied()
 
     private fun opponent(player: Player) = if (player == player1) player2 else player1
+
+    override fun equals(other: Any?) = this === other || other is Match && this.equals(other)
+
+    private fun equals(other: Match) = equalsSameOrder(other) || equalsDifferentOrder(other)
+    private fun equalsSameOrder(other: Match) = player1==other.player1 && player2==other.player2
+    private fun equalsDifferentOrder(other: Match) = player1==other.player2 && player2==other.player1
+
+    override fun hashCode(): Int {
+        var result = player1.hashCode()
+        result = 31 * result + player2.hashCode()
+        return result
+    }
 }

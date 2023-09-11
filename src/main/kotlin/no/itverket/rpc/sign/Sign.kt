@@ -28,4 +28,8 @@ abstract class Sign: Comparable<Sign> {
     override fun compareTo(other: Sign) = weaknessChart[other::class] ?: throw UnknownSignClassException(this::class)
 
     override fun equals(other: Any?) = this === other || other is Sign && this.compareTo(other) == 0
+
+    override fun hashCode(): Int {
+        return weaknessChart.hashCode()
+    }
 }

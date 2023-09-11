@@ -1,6 +1,6 @@
 package no.itverket.rpc.match
 
-data class Result constructor(
+data class Result(
     private val winner: Player?,
     private val loser: Player?,
 ) {
