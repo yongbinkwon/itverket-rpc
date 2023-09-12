@@ -2,9 +2,9 @@ package match
 
 import no.itverket.rpc.match.Match
 import no.itverket.rpc.match.Player
-import no.itverket.rpc.match.Result
 import no.itverket.rpc.sign.Rock
 import no.itverket.rpc.sign.Scissor
+import no.itverket.rpc.statistics.MatchStatistic
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 
@@ -15,8 +15,8 @@ class MatchTest {
         val winner = Player("bin", Rock())
         val loser = Player("th", Scissor())
         val match = Match(winner, loser)
-        val expectedResult = Result.results(winner, loser)
-        assertEquals(expectedResult, match.startMatch())
+        val expectedResult = MatchStatistic.results(winner, loser)
+        assertEquals(expectedResult.toString(), match.startMatch().toString())
     }
 
     @Test
@@ -24,8 +24,8 @@ class MatchTest {
         val winner = Player("bin", Rock())
         val loser = Player("th", Rock())
         val match = Match(winner, loser)
-        val expectedResult = Result.tied()
-        assertEquals(expectedResult, match.startMatch())
+        val expectedResult = MatchStatistic.tied()
+        assertEquals(expectedResult.toString(), match.startMatch().toString())
     }
 
     @Test

@@ -1,13 +1,15 @@
 package no.itverket.rpc.matchmaking
 
 import no.itverket.rpc.sign.Sign
+import no.itverket.rpc.statistics.MatchStatisticRepository
 import org.springframework.scheduling.annotation.Scheduled
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 
 @Service
 class MatchmakingService(
-    private val queuedPlayerRepository: QueuedPlayerRepository
+    private val queuedPlayerRepository: QueuedPlayerRepository,
+    private val matchStatisticRepository: MatchStatisticRepository
 ) {
     @Transactional
     fun queuePlayer(team: String, sign: Sign) {
@@ -26,7 +28,10 @@ class MatchmakingService(
         val playerToMatch = queuePool.firstOrNull() ?: return
         val remainingPlayers = queuePool.drop(1)
         val opponent = playerToMatch findMatch queuePool
-        playerToMatch versus opponent
+        val match = playerToMatch versus opponent
+        val result = match.startMatch()
+        matchStatisticRepository.save(result)
+        println(result)
         matchAllPlayers(remainingPlayers.removePlayerFromPool(opponent))
     }
 

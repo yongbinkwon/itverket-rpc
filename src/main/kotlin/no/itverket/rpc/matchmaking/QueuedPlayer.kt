@@ -20,11 +20,6 @@ class QueuedPlayer(
     @Column(nullable = false)
     private var processed: Boolean = false
 ) {
-    /*
-    infix fun findMatch(queuePool: List<QueuedPlayer>) = queuePool.firstOrNull { it.team != this.team }?.let { opponent ->
-        this.matchReadyPlayer() versus opponent.matchReadyPlayer()
-    } ?: (this.matchReadyPlayer() versus bot())
-     */
     infix fun findMatch(queuePool: List<QueuedPlayer>) = queuePool.firstOrNull { it.team != this.team }
 
     infix fun versus(opponent: QueuedPlayer?) = opponent?.let {

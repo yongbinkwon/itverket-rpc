@@ -1,12 +1,14 @@
 package no.itverket.rpc.match
 
+import no.itverket.rpc.statistics.MatchStatistic
+
 class Match(
     private val player1: Player,
     private val player2: Player
 ) {
-    fun startMatch(): Result = (player1 play player2)?.let { winner ->
-        Result.results(winner, opponent(winner))
-    } ?: Result.tied()
+    fun startMatch() = (player1 play player2)?.let { winner ->
+        MatchStatistic.results(winner, opponent(winner))
+    } ?: MatchStatistic.tied()
 
     private fun opponent(player: Player) = if (player == player1) player2 else player1
 
