@@ -25,12 +25,10 @@ class MatchmakingService(
     fun matchAllPlayers(queuePool: List<QueuedPlayer>) {
         val playerToMatch = queuePool.firstOrNull() ?: return
         val remainingPlayers = queuePool.drop(1)
-        matchPlayer(playerToMatch, remainingPlayers)
-        matchAllPlayers(remainingPlayers)
+        val opponent = playerToMatch findMatch queuePool
+        playerToMatch versus opponent
+        matchAllPlayers(remainingPlayers.removePlayerFromPool(opponent))
     }
 
-    private fun matchPlayer(player: QueuedPlayer, queuePool: List<QueuedPlayer>) {
-        val match = player findMatch queuePool
-        println(match.startMatch())
-    }
+    private fun List<QueuedPlayer>.removePlayerFromPool(player: QueuedPlayer?) = player?.let { this - it } ?: this
 }
