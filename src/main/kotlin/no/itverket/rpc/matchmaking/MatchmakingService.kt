@@ -18,7 +18,7 @@ class MatchmakingService(
     }
 
     @Transactional
-    @Scheduled(fixedDelay = 10 * 1000)
+    @Scheduled(fixedDelay = 20 * 1000, initialDelay = 20 * 1000)
     fun playMatches() {
         val queuePool = queuedPlayerRepository.findByProcessedFalse()
         matchAllPlayers(queuePool)

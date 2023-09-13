@@ -4,7 +4,6 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
 import no.itverket.rpc.team.TeamProperties
 import no.itverket.rpc.team.TeamProperty
-import no.itverket.rpc.webclient.EndpointNotAvailableException
 import no.itverket.rpc.webclient.IntroClient
 import org.springframework.scheduling.annotation.Scheduled
 import org.springframework.stereotype.Service
@@ -15,7 +14,7 @@ class IntroService(
     private val teamProperties: TeamProperties
 ) {
 
-    @Scheduled(fixedDelay = 10 * 1000)
+    @Scheduled(fixedDelay = 20 * 1000)
     fun theWorstAndTheBest() = runBlocking {
         teamProperties.allTeams().forEach {
             launch { theBest(it) }

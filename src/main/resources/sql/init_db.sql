@@ -15,4 +15,4 @@ CREATE TABLE MatchStatistic
 );
 
 CREATE ROLE cuties WITH LOGIN PASSWORD 'password123';
-GRANT SELECT ON TABLE Statistics TO cuties;
+GRANT SELECT ON TABLE MatchStatistic TO cuties;

@@ -1,6 +1,5 @@
 package no.itverket.rpc.webclient
 
-import no.itverket.rpc.team.TeamProperties
 import no.itverket.rpc.team.TeamProperty
 import org.springframework.web.reactive.function.client.WebClient
 import org.springframework.web.reactive.function.client.WebClientRequestException

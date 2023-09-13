@@ -17,7 +17,7 @@ class MatchService(
     private val rpcClient: RpcClient,
     private val teamProperties: TeamProperties
 ) {
-    @Scheduled(fixedDelay = 10 * 1000)
+    @Scheduled(fixedDelay = 20 * 1000, initialDelay = 10 * 1000)
     fun playAllCheaters() = runBlocking {
         teamProperties.allTeams().forEach {
             launch { playVersusCheater(it) }
