@@ -13,4 +13,4 @@ spring:
 
 rpc:
   teams:
-    testTeam: localhost
+    testTeam1: localhost

@@ -1,7 +1,6 @@
 package no.itverket.rpc.intro
 
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.*
 import no.itverket.rpc.team.TeamProperties
 import no.itverket.rpc.team.TeamProperty
 import no.itverket.rpc.webclient.IntroClient
@@ -17,8 +16,11 @@ class IntroService(
     @Scheduled(fixedDelay = 20 * 1000)
     fun theWorstAndTheBest() = runBlocking {
         teamProperties.allTeams().forEach {
-            launch { theBest(it) }
-            launch { theWorst(it) }
+            println(it.teamName)
+            val theBest = async { theBest(it) }
+            val theWorst = async { theWorst(it) }
+            theBest.await()
+            theWorst.await()
         }
     }
 
