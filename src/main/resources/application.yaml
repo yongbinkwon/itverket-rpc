@@ -13,4 +13,4 @@ spring:
 
 rpc:
   teams:
-    testTeam1: localhost
+    placeHolderTeamName: localhost

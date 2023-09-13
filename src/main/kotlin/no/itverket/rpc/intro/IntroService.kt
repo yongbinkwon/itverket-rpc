@@ -17,10 +17,8 @@ class IntroService(
     fun theWorstAndTheBest() = runBlocking {
         teamProperties.allTeams().forEach {
             println(it.teamName)
-            val theBest = async { theBest(it) }
-            val theWorst = async { theWorst(it) }
-            theBest.await()
-            theWorst.await()
+            launch { theBest(it) }
+            launch { theWorst(it) }
         }
     }
 
