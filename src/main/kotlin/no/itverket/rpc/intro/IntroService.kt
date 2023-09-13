@@ -16,7 +16,6 @@ class IntroService(
     @Scheduled(fixedDelay = 20 * 1000)
     fun theWorstAndTheBest() = runBlocking {
         teamProperties.allTeams().forEach {
-            println(it.teamName)
             launch { theBest(it) }
             launch { theWorst(it) }
         }
