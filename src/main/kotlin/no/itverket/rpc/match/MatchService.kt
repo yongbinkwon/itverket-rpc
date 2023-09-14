@@ -2,9 +2,6 @@ package no.itverket.rpc.match
 
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking
-import no.itverket.rpc.sign.Paper
-import no.itverket.rpc.sign.Rock
-import no.itverket.rpc.sign.Scissor
 import no.itverket.rpc.sign.Sign
 import no.itverket.rpc.team.TeamProperties
 import no.itverket.rpc.team.TeamProperty

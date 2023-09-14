@@ -2,9 +2,7 @@ package no.itverket.rpc.matchmaking
 
 import no.itverket.rpc.sign.Sign
 import no.itverket.rpc.sign.exception.UnknownSignNameException
-import no.itverket.rpc.statistics.MatchStatisticRepository
 import org.springframework.web.bind.annotation.GetMapping
-import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 

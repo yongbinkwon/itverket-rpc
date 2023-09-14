@@ -6,7 +6,9 @@ import no.itverket.rpc.sign.Scissor
 import no.itverket.rpc.sign.Sign
 import no.itverket.rpc.sign.exception.UnknownSignClassException
 import no.itverket.rpc.sign.exception.UnknownSignNameException
-import org.junit.jupiter.api.Assertions.*
+import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Assertions.assertThrows
+import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
 import kotlin.random.Random

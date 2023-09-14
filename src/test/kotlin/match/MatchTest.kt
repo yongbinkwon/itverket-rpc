@@ -1,8 +1,8 @@
 package match
 
 import no.itverket.rpc.match.Match
-import no.itverket.rpc.match.result.MatchResult
 import no.itverket.rpc.match.Player
+import no.itverket.rpc.match.result.MatchResult
 import no.itverket.rpc.sign.Rock
 import no.itverket.rpc.sign.Scissor
 import org.junit.jupiter.api.Assertions.assertEquals

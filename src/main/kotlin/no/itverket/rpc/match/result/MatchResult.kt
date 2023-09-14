@@ -2,7 +2,7 @@ package no.itverket.rpc.match.result
 
 import no.itverket.rpc.match.Player
 import no.itverket.rpc.statistics.MatchStatistic
-import java.util.Objects
+import java.util.*
 
 abstract class MatchResult(
     private val player1: Player? = null,

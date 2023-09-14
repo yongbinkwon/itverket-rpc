@@ -1,6 +1,7 @@
 package no.itverket.rpc.intro
 
-import kotlinx.coroutines.*
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 import no.itverket.rpc.team.TeamProperties
 import no.itverket.rpc.team.TeamProperty
 import no.itverket.rpc.webclient.IntroClient
