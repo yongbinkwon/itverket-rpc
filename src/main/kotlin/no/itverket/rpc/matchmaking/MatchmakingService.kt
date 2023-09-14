@@ -24,13 +24,17 @@ class MatchmakingService(
         matchAllPlayers(queuePool)
     }
 
-    fun matchAllPlayers(queuePool: List<QueuedPlayer>) {
-        val playerToMatch = queuePool.firstOrNull() ?: return
-        val remainingPlayers = queuePool.drop(1)
-        val opponent = playerToMatch findMatch queuePool
+    private fun matchAllPlayers(queuePool: List<QueuedPlayer>) {
+        matchPlayers(queuePool)
+    }
+
+    private fun matchPlayers(remainingQueuePool: List<QueuedPlayer>) {
+        val playerToMatch = remainingQueuePool.firstOrNull() ?: return
+        val remainingPlayers = remainingQueuePool.drop(1)
+        val opponent = playerToMatch findMatch remainingQueuePool
         val match = playerToMatch versus opponent
         val result = match.startMatch()
-        matchStatisticRepository.save(result)
+        matchStatisticRepository.save(result.toStatistic())
         println(result)
         matchAllPlayers(remainingPlayers.removePlayerFromPool(opponent))
     }

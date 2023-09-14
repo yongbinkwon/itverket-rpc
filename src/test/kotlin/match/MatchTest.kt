@@ -1,10 +1,10 @@
 package match
 
 import no.itverket.rpc.match.Match
+import no.itverket.rpc.match.result.MatchResult
 import no.itverket.rpc.match.Player
 import no.itverket.rpc.sign.Rock
 import no.itverket.rpc.sign.Scissor
-import no.itverket.rpc.statistics.MatchStatistic
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 
@@ -15,17 +15,17 @@ class MatchTest {
         val winner = Player("bin", Rock())
         val loser = Player("th", Scissor())
         val match = Match(winner, loser)
-        val expectedResult = MatchStatistic.results(winner, loser)
-        assertEquals(expectedResult.toString(), match.startMatch().toString())
+        val expectedResult = MatchResult.results(winner, loser)
+        assertEquals(expectedResult, match.startMatch())
     }
 
     @Test
     fun `match between two equal players returns correct tie`() {
-        val winner = Player("bin", Rock())
-        val loser = Player("th", Rock())
-        val match = Match(winner, loser)
-        val expectedResult = MatchStatistic.tied()
-        assertEquals(expectedResult.toString(), match.startMatch().toString())
+        val player1 = Player("bin", Rock())
+        val player2 = Player("th", Rock())
+        val match = Match(player1, player2)
+        val expectedResult = MatchResult.tie(player1, player2)
+        assertEquals(expectedResult, match.startMatch())
     }
 
     @Test

@@ -9,6 +9,8 @@ CREATE TABLE QueuedPlayer
 CREATE TABLE MatchStatistic
 (
     Id   int PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+    Player1 varchar(255) NOT NULL,
+    Player2 varchar(255) NOT NULL,
     Winner varchar(255),
     Loser varchar(255),
     MatchDate timestamp NOT NULL
